@@ -16,7 +16,7 @@ mongo = PyMongo(app)
 ############################################################
 
 @app.route('/')
-def plants_list():
+def list_plants():
     """Display the plants list page."""
 
     # TODO: Replace the following line with a database call to retrieve *all*
@@ -26,14 +26,15 @@ def plants_list():
     context = {
         'plants': plants_data,
     }
-    return render_template('plants_list.html', **context)
+    return render_template('list_plants.html', **context)
 
 @app.route('/about')
 def about():
     """Display the about page."""
     return render_template('about.html')
 
-@app.route('/create', methods=['GET', 'POST'])
+
+@app.route('/plants/new', methods=['GET', 'POST'])
 def create():
     """Display the plant creation page & process data from the creation form."""
     if request.method == 'POST':
@@ -54,7 +55,8 @@ def create():
     else:
         return render_template('create.html')
 
-@app.route('/plant/<plant_id>')
+
+@app.route('/plants/<plant_id>')
 def detail(plant_id):
     """Display the plant detail page & process data from the harvest form."""
 
@@ -74,7 +76,8 @@ def detail(plant_id):
     }
     return render_template('detail.html', **context)
 
-@app.route('/harvest/<plant_id>', methods=['POST'])
+
+@app.route('/plants/<plant_id>/harvests', methods=['POST'])
 def harvest(plant_id):
     """
     Accepts a POST request with data for 1 harvest and inserts into database.
@@ -93,7 +96,8 @@ def harvest(plant_id):
 
     return redirect(url_for('detail', plant_id=plant_id))
 
-@app.route('/edit/<plant_id>', methods=['GET', 'POST'])
+
+@app.route('/plants/<plant_id>/edit', methods=['GET', 'POST'])
 def edit(plant_id):
     """Shows the edit page and accepts a POST request with edited data."""
     if request.method == 'POST':
@@ -113,7 +117,8 @@ def edit(plant_id):
 
         return render_template('edit.html', **context)
 
-@app.route('/delete/<plant_id>', methods=['POST'])
+
+@app.route('/plants/<plant_id>/delete', methods=['POST'])
 def delete(plant_id):
     # TODO: Make a `delete_one` database call to delete the plant with the given
     # id.
@@ -121,8 +126,7 @@ def delete(plant_id):
     # TODO: Also, make a `delete_many` database call to delete all harvests with
     # the given plant id.
 
-    return redirect(url_for('plants_list'))
+    return redirect(url_for('list_plants'))
 
 if __name__ == '__main__':
     app.run(debug=True)
-
