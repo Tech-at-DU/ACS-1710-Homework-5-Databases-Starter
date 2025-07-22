@@ -4,16 +4,16 @@ Follow the [instructions](https://github.com/Tech-at-DU/ACS1710-Web-Architecture
 
 This project uses restful route mapping: 
 
+
+Proposed Changes: 
+
 | Purpose                | Method | Route                         | View Function       |
 | ---------------------- | ------ | ----------------------------- | ------------------- |
-| List all plants        | GET    | `/plants`                     | `list_plants()`     |
+| List all plants        | GET    | `/`                           | `list_plants()`     |
 | Show form to add plant | GET    | `/plants/new`                 | `new_plant_form()`  |
-| Create a new plant     | POST   | `/plants`                     | `create_plant()`    |
+| Create a new plant     | POST   | `/plants/new`                 | `create_plant()`    |
 | View a specific plant  | GET    | `/plants/<plant_id>`          | `show_plant()`      |
-| Edit a plant (form)    | GET    | `/plants/<plant_id>/edit`     | `edit_plant_form()` |
-| Update a plant         | POST   | `/plants/<plant_id>` (or PUT) | `update_plant()`    |
-| Delete a plant         | POST   | `/plants/<plant_id>/delete`   | `delete_plant()`    |
+| Show Edit a plant form | GET    | `/plants/<plant_id>/edit`     | `edit_plant_form()` |
+| Update a plant         | PUT    | `/plants/<plant_id>/edit`     | `update_plant()`    |
+| Delete a plant         | DELETE | `/plants/<plant_id>/delete`   | `delete_plant()`    |
 | Create a harvest       | POST   | `/plants/<plant_id>/harvests` | `create_harvest()`  |
-
-
-
