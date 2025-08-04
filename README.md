@@ -418,7 +418,7 @@ templates/
 ├── create.html
 ├── detail.html
 ├── edit.html
-└── plant_list.html
+└── list_plants.html
 ```
 
 `about.html`: 
@@ -642,7 +642,7 @@ The template page shows a mock up of what will be displayed. You'll replace this
 
 This page shows a form that allows us to update a plant's info. You'll need to display the data for a given plant in the form fields. 
 
-`plants_list.html`:
+`list_plants.html`:
 
 ```HTML
 {% extends 'base.html' %}
