@@ -535,7 +535,7 @@ The content here will be inserted into the base template when we show the route 
 <main>
         <h1>Tomato</h1>
 
-        <img src="https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpeg?itok=4KrW14a4">
+        <img src="https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpeg?itok=4KrW14a4" alt="some plant">
 
         <section id="info">
             <h3>Info</h3>
